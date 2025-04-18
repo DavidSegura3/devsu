@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "182ced39-883c-449a-8723-6b2a9ab65eb1",
+		"name": "Devsu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8509939"
+	},
+	"item": [
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "client-save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"David Segura\",\r\n    \"gender\" : \"male\",\r\n    \"age\" : 35,\r\n    \"identification\" : \"1019039669\",\r\n    \"address\" : \"calle ciega\",\r\n    \"phone\" : \"1234567\",\r\n    \"clientId\" : 102536,\r\n    \"password\" : \"admin1234\",\r\n    \"status\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-client-by-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/client/client-id/1825",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"client-id",
+								"1825"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-client-by-client-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/client/client-id/102535",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"client-id",
+								"102535"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-password-by-client-id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"admin1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/client/password/client-id/102535",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"password",
+								"client-id",
+								"102535"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/client/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-client-by-id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"otra\",\r\n    \"gender\" : \"parce\",\r\n    \"address\" : \"\",\r\n    \"phone\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/client/client-id/102535",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"client-id",
+								"102535"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "account-save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\" : 189977,\r\n    \"accountType\" : \"savings\",\r\n    \"initialBalance\" : 18000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-account-associate-client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\" : 585545,\r\n    \"accountType\" : \"checking\",\r\n    \"initialBalance\" : 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/account/client-id/1825",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account",
+								"client-id",
+								"1825"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-account-by-account-number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/account/account-number/478758",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account",
+								"account-number",
+								"478758"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-account-by-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/account/account-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account",
+								"account-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-balance-by-id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initialBalance\" : 5800\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/account/balance/account-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account",
+								"balance",
+								"account-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/account/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movement",
+			"item": [
+				{
+					"name": "movement-save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\" : 478758,\r\n    \"transactionValue\" : 6798\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/movement?movementType=withdrawal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"movement"
+							],
+							"query": [
+								{
+									"key": "movementType",
+									"value": "withdrawal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-movement-by-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/movement/movement-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"movement",
+								"movement-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-movement-by-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/movement/movement-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"movement",
+								"movement-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-balance-by-id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initialBalance\" : 5800\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/account/balance/account-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"account",
+								"balance",
+								"account-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-movements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/movement/movements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"movement",
+								"movements"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  ms-client:
+    container_name: ms-client
+    image: ms-client:latest
+    build:
+      context: ./ms-client
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - devsu
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:client-db
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=sa
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - SPRING_H2_CONSOLE_PATH=/h2-console
+  ms-account:
+    container_name: ms-account
+    image: ms-account:latest
+    build:
+      context: ./ms-account
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    networks:
+      - devsu
+    restart: always
+    depends_on:
+      - ms-client
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:account-db
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=sa
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - SPRING_H2_CONSOLE_PATH=/h2-console
+networks:
+  devsu:
+    name: devsu
