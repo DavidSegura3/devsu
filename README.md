@@ -74,7 +74,9 @@ Se contempla una comunicación asincrónica entre estos dos microservicios para 
 
 A continuación, se listan los endpoints principales de cada microservicio:
 
-**`ms-client` (/clients):**
+
+**`ms-client` (/clients):** `Documentación Endpoints Swagger` : http://localhost:8000/swagger-ui/index.html#
+
 
 * `POST /client`: Creates a new client with the provided information.
 * `GET /client/clients`: Retrieves a list of clients.
@@ -83,7 +85,7 @@ A continuación, se listan los endpoints principales de cada microservicio:
 * `PATCH /client/password/client-id/{clientId}`: Search for a client by clientId and change its password if found.
 * `DELETE /client/client-id/{clientId}`: Deletes a client based on the provided client ID.
 
-**`ms-account` (/accounts):**
+**`ms-account` (/accounts):** `Documentación Endpoints Swagger` : http://localhost:9000/swagger-ui/index.html#
 
 * `POST /account`: Creates a new account with the provided information.
 * `POST /account/client-id/{clientId}`: Creates a new account and associates it with a client.
@@ -92,14 +94,14 @@ A continuación, se listan los endpoints principales de cada microservicio:
 * `DELETE /account/account-id/{accountId}`: Deletes a account based on the provided account ID.
 * `PATCH /account/balance/account-id/{accountId}`: Search for a account by accountId and change its balance if found.
 
-**`ms-account` (/movements):**
+**`ms-account` (/movements):** `Documentación Endpoints Swagger` : http://localhost:9000/swagger-ui/index.html#
 
 * `POST /movement`: Creates a new movement with the provided information.
 * `GET /movement/movement-id/{movementId}`: Retrieves a movement based on the provided movement ID.
 * `GET /movement/movements`: Retrieves a list of movements.
 * `DELETE /movement/movement-id/{movementId}`: Deletes a movement based on the provided movement ID.
 
-## ------------------------------------------------------------------------------------------------------------------
+
 ## Despliegue con Docker Compose
 
 Este documento describe cómo desplegar la aplicación utilizando el archivo `docker-compose.yml` proporcionado.
@@ -177,3 +179,15 @@ El archivo `docker-compose.yml` define dos servicios:
 * **`networks`**:
 
     * Define una red llamada `devsu` para que los microservicios puedan comunicarse entre sí.
+
+## Repositorio en GitHub y Descarga del Proyecto
+
+Puedes acceder al código fuente de este proyecto y descargarlo desde el siguiente repositorio en GitHub:
+
+* **`Ruta GitHub:`** https://github.com/DavidSegura3/devsu?tab=readme-ov-file
+
+
+Para clonar el repositorio y obtener una copia local del proyecto, puedes utilizar el siguiente comando:
+
+git clone [https://github.com/DavidSegura3/devsu.git](https://github.com/DavidSegura3/devsu.git)
+
